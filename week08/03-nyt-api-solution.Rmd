@@ -24,6 +24,7 @@ We are now going to work with a private API, using  we will take the New York Ti
 ```{r}
 key_name <- "nyt-api-key" # this should be whatever you want to call your NYT API key
 # key_set(key_name) # only need to do this if you haven't done so yet
+key_get("nyt-api-key")
 ```
 
 The first step is to identify the base URL of the endpoint and the parameters that we can use to query the API, for the Article Search API you can find this URL structure [here](https://developer.nytimes.com/docs/articlesearch-product/1/overview). Now we can do a first API call using the `httr` package. Warning: when you print the `r` object below, it will show your key! You can clear the ouput or avoid printing this object if you don't want your key to be visible.
@@ -151,7 +152,7 @@ counts_inequality <- nyt_years_count(q = "inequality", yearinit = 1970, yearend 
 
 ```{r}
 ggplot() +
-  geom_line(aes(x = 2019:2020, y = counts_inequality)) +
+  geom_line(aes(x = 1970:2020, y = counts_inequality)) +
   labs(title = "Mentions of inequality in the NYT by year",
        y = "Article count",
        x = "") +
